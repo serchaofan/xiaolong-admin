@@ -68,16 +68,16 @@ export const constantRoutes = [
     meta: { title: 'Workloads', icon: 'dashboard' },
     children: [
       {
-        path: 'workloads_overview',
-        name: 'workloads_overview',
-        component: () => import('@/views/dashboard/index'),
-        meta: { title: 'Overview' }
-      },
-      {
         path: 'deployments',
         name: 'deployments',
         component: () => import('@/views/workloads/deployments'),
         meta: { title: 'Deployments' }
+      },
+      {
+        path: 'pods',
+        name: 'pods',
+        component: () => import('@/views/workloads/pods'),
+        meta: { title: 'Pods' }
       },
       {
         path: 'daemonsets',

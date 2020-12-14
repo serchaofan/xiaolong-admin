@@ -71,3 +71,22 @@ export function getServicesList(params) {
   })
 }
 
+export function getCronjobsList(params) {
+  console.log(params)
+  return request({
+    url: '/api/cronjobs',
+    method: 'get',
+    params,
+    baseURL: 'http://127.0.0.1:8000'
+  })
+}
+
+export function getJobsList(params) {
+  console.log(params)
+  return request({
+    url: '/api/jobs',
+    method: 'get',
+    params,
+    baseURL: 'http://127.0.0.1:8000'
+  })
+}

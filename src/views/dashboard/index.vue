@@ -18,9 +18,7 @@ export default {
   name: 'Dashboard',
   data() {
     return {
-      // nodesList: getNodesList().then(res => {
-      //   this.nodesList = res.data
-      // })
+      
     }
   },
   computed: {

@@ -16,6 +16,15 @@ export function getNodesList() {
   })
 }
 
+export function getNodeInfo(params) {
+  return request({
+    url: '/api/node',
+    method: 'get',
+    params,
+    baseURL: 'http://127.0.0.1:8000'
+  })
+}
+
 export function getPodsList(params) {
   return request({
     url: '/api/pods',

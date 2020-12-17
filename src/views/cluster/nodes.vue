@@ -48,9 +48,9 @@
         this.listloading = false
       },
       nodeDetailed(hostname) {
-        self.$router.push({
-          path: 'node_detailed',
-          params: {
+        this.$router.push({
+          path: '/cluster/node',
+          query: {
             name: hostname
           }
         })

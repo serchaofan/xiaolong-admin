@@ -65,7 +65,7 @@ export const constantRoutes = [
     path: '/workloads',
     component: Layout,
     // redirect: '/workloads',
-    meta: { title: 'Workloads', icon: 'dashboard' },
+    meta: { title: 'Workloads', icon: 'dashboard', breadcrumb: false },
     children: [
       {
         path: 'deployments',
@@ -110,7 +110,7 @@ export const constantRoutes = [
     path: '/service',
     component: Layout,
     // redirect: '/service',
-    meta: { title: 'Service', icon: 'dashboard' },
+    meta: { title: 'Service', icon: 'dashboard', breadcrumb: false },
     children: [
       {
         path: 'services',
@@ -161,7 +161,7 @@ export const constantRoutes = [
     path: '/cluster',
     component: Layout,
     // redirect: '/cluster',
-    meta: { title: 'Cluster', icon: 'dashboard' },
+    meta: { title: 'Cluster', icon: 'dashboard', breadcrumb: false },
     children: [
       {
         path: 'namespaces',
@@ -176,11 +176,11 @@ export const constantRoutes = [
         meta: { title: 'Nodes' }
       },
       {
-        path: 'node_detailed',
-        name: 'node_detailed',
+        path: 'node',
+        name: 'node',
         hidden: true,
-        component: () => import('@/views/cluster/node_detailed'),
-        meta: { title: 'Nodes' }
+        component: () => import('@/views/cluster/node'),
+        meta: { title: 'Node' }
       }
     ]
   },

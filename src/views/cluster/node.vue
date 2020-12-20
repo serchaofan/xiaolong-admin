@@ -104,7 +104,7 @@
               </el-card>
             </el-col>
           </el-tab-pane>
-          <el-tab-pane label="定时任务补偿" name="fourth"></el-tab-pane>
+<!--          <el-tab-pane label="定时任务补偿" name="fourth"></el-tab-pane>-->
         </el-tabs>
       </el-col>
 

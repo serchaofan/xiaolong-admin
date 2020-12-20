@@ -52,20 +52,18 @@ export const constantRoutes = [
   {
     path: '/overview',
     component: Layout,
-    // redirect: '/overview',
     children: [{
       path: 'overview',
       name: 'overview',
       component: () => import('@/views/dashboard/index'),
-      meta: { title: 'Namespace Overview', icon: 'dashboard' }
+      meta: { title: 'Namespace Overview', icon: 'namespace' }
     }]
   },
 
   {
     path: '/workloads',
     component: Layout,
-    // redirect: '/workloads',
-    meta: { title: 'Workloads', icon: 'dashboard', breadcrumb: false },
+    meta: { title: 'Workloads', icon: 'workload', breadcrumb: false },
     children: [
       {
         path: 'deployments',
@@ -109,8 +107,7 @@ export const constantRoutes = [
   {
     path: '/service',
     component: Layout,
-    // redirect: '/service',
-    meta: { title: 'Service', icon: 'dashboard', breadcrumb: false },
+    meta: { title: 'Service', icon: 'services', breadcrumb: false },
     children: [
       {
         path: 'services',
@@ -136,32 +133,89 @@ export const constantRoutes = [
   {
     path: '/config',
     component: Layout,
-    // redirect: '/config',
     children: [{
       path: 'config',
       name: 'config',
       component: () => import('@/views/dashboard/index'),
-      meta: { title: 'Config and Storage', icon: 'dashboard' }
+      meta: { title: 'Config and Storage', icon: 'storage' }
     }]
   },
 
   {
     path: '/rbac',
     component: Layout,
-    // redirect: '/rbac',
+    meta: { title: 'RBAC', icon: 'rbac', breadcrumb: false },
+    children: [
+      {
+        path: 'roles',
+        name: 'roles',
+        component: () => import('@/views/rbac/roles'),
+        meta: { title: 'Role' }
+      },
+      {
+        path: 'role',
+        name: 'role',
+        hidden: true,
+        component: () => import('@/views/rbac/role'),
+        meta: { title: 'Role' }
+      },
+      {
+        path: 'role_bindings',
+        name: 'role_bindings',
+        component: () => import('@/views/rbac/role_bindings'),
+        meta: { title: 'RoleBinding' }
+      },
+      {
+        path: 'role_binding',
+        name: 'role_binding',
+        hidden: true,
+        component: () => import('@/views/rbac/role_binding'),
+        meta: { title: 'RoleBinding' }
+      },
+      {
+        path: 'cluster_roles',
+        name: 'cluster_roles',
+        component: () => import('@/views/rbac/cluster_roles'),
+        meta: { title: 'ClusterRole' }
+      },
+      {
+        path: 'cluster_role',
+        name: 'cluster_role',
+        hidden: true,
+        component: () => import('@/views/rbac/cluster_role'),
+        meta: { title: 'ClusterRole' }
+      },
+      {
+        path: 'cluster_role_bindings',
+        name: 'cluster_role_bindings',
+        component: () => import('@/views/rbac/cluster_role_bindings'),
+        meta: { title: 'ClusterRoleBinding' }
+      },
+      {
+        path: 'cluster_role_binding',
+        name: 'cluster_role_binding',
+        hidden: true,
+        component: () => import('@/views/rbac/cluster_role_binding'),
+        meta: { title: 'ClusterRoleBinding' }
+      },
+    ]
+  },
+
+  {
+    path: '/events',
+    component: Layout,
     children: [{
-      path: 'rbac',
-      name: 'rbac',
-      component: () => import('@/views/dashboard/index'),
-      meta: { title: 'RBAC', icon: 'dashboard' }
+      path: 'events',
+      name: 'events',
+      component: () => import('@/views/events'),
+      meta: { title: 'Events', icon: 'events' }
     }]
   },
 
   {
     path: '/cluster',
     component: Layout,
-    // redirect: '/cluster',
-    meta: { title: 'Cluster', icon: 'dashboard', breadcrumb: false },
+    meta: { title: 'Cluster', icon: 'cluster', breadcrumb: false },
     children: [
       {
         path: 'namespaces',
@@ -188,12 +242,11 @@ export const constantRoutes = [
   {
     path: '/cdk8s',
     component: Layout,
-    // redirect: '/cdk8s',
     children: [{
       path: 'cdk8s',
       name: 'cdk8s',
       component: () => import('@/views/dashboard/index'),
-      meta: { title: 'CDK8S', icon: 'dashboard' }
+      meta: { title: 'CDK8S', icon: 'cdk8s' }
     }]
   },
 

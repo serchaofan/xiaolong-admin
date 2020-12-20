@@ -99,3 +99,103 @@ export function getJobsList(params) {
     baseURL: 'http://127.0.0.1:8000'
   })
 }
+
+export function getEventsList(params) {
+  console.log(params)
+  return request({
+    url: '/api/events',
+    method: 'get',
+    params,
+    baseURL: 'http://127.0.0.1:8000'
+  })
+}
+
+export function getEventInfo(params) {
+  console.log(params)
+  return request({
+    url: '/api/event',
+    method: 'get',
+    params,
+    baseURL: 'http://127.0.0.1:8000'
+  })
+}
+
+export function getRolesList(params) {
+  console.log(params)
+  return request({
+    url: '/api/roles',
+    method: 'get',
+    params,
+    baseURL: 'http://127.0.0.1:8000'
+  })
+}
+
+export function getRoleInfo(params) {
+  console.log(params)
+  return request({
+    url: '/api/role',
+    method: 'get',
+    params,
+    baseURL: 'http://127.0.0.1:8000'
+  })
+}
+
+export function getRoleBindingsList(params) {
+  console.log(params)
+  return request({
+    url: '/api/role_bindings',
+    method: 'get',
+    params,
+    baseURL: 'http://127.0.0.1:8000'
+  })
+}
+
+export function getRoleBindingInfo(params) {
+  console.log(params)
+  return request({
+    url: '/api/role_binding',
+    method: 'get',
+    params,
+    baseURL: 'http://127.0.0.1:8000'
+  })
+}
+
+export function getClusterRolesList(params) {
+  console.log(params)
+  return request({
+    url: '/api/cluster_roles',
+    method: 'get',
+    params,
+    baseURL: 'http://127.0.0.1:8000'
+  })
+}
+
+export function getClusterRoleInfo(params) {
+  console.log(params)
+  return request({
+    url: '/api/cluster_role',
+    method: 'get',
+    params,
+    baseURL: 'http://127.0.0.1:8000'
+  })
+}
+
+export function getClusterRoleBindingsList(params) {
+  console.log(params)
+  return request({
+    url: '/api/cluster_role_bindings',
+    method: 'get',
+    params,
+    baseURL: 'http://127.0.0.1:8000'
+  })
+}
+
+export function getClusterRoleBindingInfo(params) {
+  console.log(params)
+  return request({
+    url: '/api/cluster_role_binding',
+    method: 'get',
+    params,
+    baseURL: 'http://127.0.0.1:8000'
+  })
+}

@@ -5,9 +5,9 @@
         <el-card>
           <el-table stripe :data="namespacesList" width="100%" v-loading="listloading" fit>
             <el-table-column prop="name" label="Name">
-<!--              <template slot-scope="scope">-->
-<!--                <a style="color: #1300D6" @click="nodeDetailed(scope.row.name)">{{ scope.row.name }}</a>-->
-<!--              </template>-->
+              <template slot-scope="scope">
+                <el-button type="text" @click="changeNamespace(scope.row.name)">{{ scope.row.name }}</el-button>
+              </template>
             </el-table-column>
             <el-table-column prop="status" label="Status"></el-table-column>
             <el-table-column prop="creationTimestamp" label="Create Time"></el-table-column>
@@ -40,6 +40,10 @@
           this.namespacesList = res.data
         })
         this.listloading = false
+      },
+      changeNamespace(namespace) {
+        this.$store.commit('namespace/changeNamespace', namespace)
+        console.log("this.$store.state.namespace.namespace", this.$store.state.namespace.namespace)
       }
     }
   }

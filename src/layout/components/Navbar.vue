@@ -33,6 +33,11 @@ export default {
       namespacesList: []
     }
   },
+  watch: {
+    '$store.state.namespace.namespace': function() {
+      this.namespace = this.$store.state.namespace.namespace
+    }
+  },
   created() {
     if (sessionStorage.getItem("store") ) {
       this.$store.replaceState(Object.assign({}, this.$store.state,JSON.parse(sessionStorage.getItem("store"))))

@@ -9,7 +9,7 @@
           <el-table
             v-loading="listloading"
             stripe
-            :data="servicesList.filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase()))"
+            :data="pvcsList.filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase()))"
             width="100%"
             :max-height="tableHeight">
             <el-table-column prop="name" label="Name" />
@@ -19,18 +19,11 @@
                 <el-tag v-for="(val,key) in scope.row.labels" style="margin-bottom: 3px">{{ key }}={{ val }}</el-tag>
               </template>
             </el-table-column>
-            <el-table-column prop="type" label="Type" width="100rem" />
-            <el-table-column prop="clusterIP" label="ClusterIP" width="120rem" />
-            <el-table-column prop="ports" label="Ports">
-              <template slot-scope="scope">
-                <el-tag v-for="item in scope.row.ports" style="margin-bottom: 3px">{{ item.port }}:{{ item.node_port }}/{{ item.protocol }}</el-tag>
-              </template>
-            </el-table-column>
-            <el-table-column prop="selector" label="Selector" width="200rem">
-              <template slot-scope="scope">
-                <el-tag v-for="(val,key) in scope.row.selector" style="margin-bottom: 3px">{{ key }}={{ val }}</el-tag>
-              </template>
-            </el-table-column>
+            <el-table-column prop="capacity" label="Capacity" />
+            <el-table-column prop="access_modes" label="Access Mode" />
+            <el-table-column prop="status" label="Status" />
+            <el-table-column prop="storage_class_name" label="Storage Class" />
+            <el-table-column prop="volume_mode" label="Volume Mode" />
             <el-table-column prop="creationTimestamp" label="Create Time" />
           </el-table>
         </el-card>
@@ -40,15 +33,15 @@
 </template>
 
 <script>
-import { getServicesList } from '@/api/k8s'
+import {getPVCsList} from "@/api/k8s";
 
 export default {
-  name: 'services',
+  name: "pvcs",
   data() {
     return {
       namespace: this.$store.state.namespace.namespace,
       listloading: true,
-      servicesList: [],
+      pvcsList: [],
       query: {},
       search: '',
       tableHeight: 500
@@ -85,8 +78,8 @@ export default {
   methods: {
     async fetchData(query) {
       this.listloading = true
-      await getServicesList(query).then(res => {
-        this.servicesList = res.data
+      await getPVCsList(query).then(res => {
+        this.pvcsList = res.data
       })
       this.listloading = false
     }

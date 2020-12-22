@@ -44,6 +44,11 @@
       changeNamespace(namespace) {
         this.$store.commit('namespace/changeNamespace', namespace)
         console.log("this.$store.state.namespace.namespace", this.$store.state.namespace.namespace)
+        this.$message(
+          {
+            message: 'Current Namespace: ' + this.$store.state.namespace.namespace
+          }
+        )
       }
     }
   }

@@ -14,7 +14,7 @@
             :max-height="tableHeight">
             <el-table-column prop="name" label="Name" />
             <el-table-column prop="namespace" label="Namespace" width="100rem" />
-            <el-table-column prop="message" label="Message" />
+            <el-table-column prop="message" label="Message" :show-overflow-tooltip='true' />
             <el-table-column prop="reason" label="Reason" width="100rem" />
             <el-table-column prop="type" label="Type" width="100rem">
               <template slot-scope="scope">

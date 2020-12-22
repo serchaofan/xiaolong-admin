@@ -12,16 +12,13 @@
             :data="roleBindingsList.filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase()))"
             width="100%"
             :max-height="tableHeight">
-            <el-table-column prop="name" label="Name" />
+            <el-table-column prop="name" label="Name" width="260rem" />
             <el-table-column prop="namespace" label="Namespace" width="100rem" />
-            <el-table-column prop="labels" label="Labels" width="300rem">
+            <el-table-column prop="labels" label="Labels" width="600rem">
               <template slot-scope="scope">
-                <el-tag v-for="(val,key) in scope.row.labels">{{ key }}={{ val }}</el-tag>
+                <el-tag v-for="(val,key) in scope.row.labels" style="margin-bottom: 3px; margin-right: 3px">{{ key }}={{ val }}</el-tag>
               </template>
             </el-table-column>
-            <!--            <el-table-column prop="message" label="Message" />-->
-            <!--            <el-table-column prop="reason" label="Reason" width="100rem" />-->
-            <!--            <el-table-column prop="type" label="Type" width="100rem" />-->
             <el-table-column prop="creationTimestamp" label="Create Time" />
           </el-table>
         </el-card>

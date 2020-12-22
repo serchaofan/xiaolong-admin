@@ -4,14 +4,14 @@
       <el-col :span="24">
         <el-card>
           <el-table stripe :data="nodesList" width="100%" v-loading="listloading" fit>
-            <el-table-column prop="name" label="Name" width="120rem">
+            <el-table-column prop="name" label="Name" width="140rem">
               <template slot-scope="scope">
                 <el-button type="text" @click="nodeDetailed(scope.row.name)">{{ scope.row.name }}</el-button>
               </template>
             </el-table-column>
-            <el-table-column prop="labels" label="Labels" width="300rem">
+            <el-table-column prop="labels" label="Labels" width="600rem">
               <template slot-scope="scope">
-                <el-tag v-for="(val,key) in scope.row.labels">{{key}}={{val}}</el-tag>
+                <el-tag v-for="(val,key) in scope.row.labels" style="margin-bottom: 3px; margin-right: 3px">{{key}}={{val}}</el-tag>
               </template>
             </el-table-column>
             <el-table-column prop="role" label="Roles" width="100rem"></el-table-column>

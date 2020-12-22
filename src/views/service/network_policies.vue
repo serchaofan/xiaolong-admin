@@ -9,7 +9,7 @@
           <el-table
             v-loading="listloading"
             stripe
-            :data="servicesList.filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase()))"
+            :data="networkPoliciesList.filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase()))"
             width="100%"
             :max-height="tableHeight">
             <el-table-column prop="name" label="Name" />
@@ -17,18 +17,6 @@
             <el-table-column prop="labels" label="Labels" width="300rem">
               <template slot-scope="scope">
                 <el-tag v-for="(val,key) in scope.row.labels" style="margin-bottom: 3px">{{ key }}={{ val }}</el-tag>
-              </template>
-            </el-table-column>
-            <el-table-column prop="type" label="Type" width="100rem" />
-            <el-table-column prop="clusterIP" label="ClusterIP" width="120rem" />
-            <el-table-column prop="ports" label="Ports">
-              <template slot-scope="scope">
-                <el-tag v-for="item in scope.row.ports" style="margin-bottom: 3px">{{ item.port }}:{{ item.node_port }}/{{ item.protocol }}</el-tag>
-              </template>
-            </el-table-column>
-            <el-table-column prop="selector" label="Selector" width="200rem">
-              <template slot-scope="scope">
-                <el-tag v-for="(val,key) in scope.row.selector" style="margin-bottom: 3px">{{ key }}={{ val }}</el-tag>
               </template>
             </el-table-column>
             <el-table-column prop="creationTimestamp" label="Create Time" />
@@ -40,15 +28,15 @@
 </template>
 
 <script>
-import { getServicesList } from '@/api/k8s'
+import {getNetworkPoliciesList} from "@/api/k8s";
 
 export default {
-  name: 'services',
+  name: "network_policies",
   data() {
     return {
       namespace: this.$store.state.namespace.namespace,
       listloading: true,
-      servicesList: [],
+      networkPoliciesList: [],
       query: {},
       search: '',
       tableHeight: 500
@@ -85,12 +73,13 @@ export default {
   methods: {
     async fetchData(query) {
       this.listloading = true
-      await getServicesList(query).then(res => {
-        this.servicesList = res.data
+      await getNetworkPoliciesList(query).then(res => {
+        this.networkPoliciesList = res.data
       })
       this.listloading = false
     }
   }
+
 }
 </script>
 

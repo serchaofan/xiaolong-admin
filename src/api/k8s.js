@@ -80,6 +80,46 @@ export function getServicesList(params) {
   })
 }
 
+export function getServiceInfo(params) {
+  console.log(params)
+  return request({
+    url: '/api/service',
+    method: 'get',
+    params,
+    baseURL: 'http://127.0.0.1:8000'
+  })
+}
+
+export function getIngressesList(params) {
+  console.log(params)
+  return request({
+    url: '/api/ingresses',
+    method: 'get',
+    params,
+    baseURL: 'http://127.0.0.1:8000'
+  })
+}
+
+export function getIngressInfo(params) {
+  console.log(params)
+  return request({
+    url: '/api/ingress',
+    method: 'get',
+    params,
+    baseURL: 'http://127.0.0.1:8000'
+  })
+}
+
+export function getNetworkPoliciesList(params) {
+  console.log(params)
+  return request({
+    url: '/api/network_policies',
+    method: 'get',
+    params,
+    baseURL: 'http://127.0.0.1:8000'
+  })
+}
+
 export function getCronjobsList(params) {
   console.log(params)
   return request({
@@ -114,6 +154,56 @@ export function getEventInfo(params) {
   console.log(params)
   return request({
     url: '/api/event',
+    method: 'get',
+    params,
+    baseURL: 'http://127.0.0.1:8000'
+  })
+}
+
+export function getSecretsList(params) {
+  console.log(params)
+  return request({
+    url: '/api/secrets',
+    method: 'get',
+    params,
+    baseURL: 'http://127.0.0.1:8000'
+  })
+}
+
+export function getPVsList(params) {
+  console.log(params)
+  return request({
+    url: '/api/secrets',
+    method: 'get',
+    params,
+    baseURL: 'http://127.0.0.1:8000'
+  })
+}
+
+export function getPVCsList(params) {
+  console.log(params)
+  return request({
+    url: '/api/secrets',
+    method: 'get',
+    params,
+    baseURL: 'http://127.0.0.1:8000'
+  })
+}
+
+export function getServiceAccountsList(params) {
+  console.log(params)
+  return request({
+    url: '/api/secrets',
+    method: 'get',
+    params,
+    baseURL: 'http://127.0.0.1:8000'
+  })
+}
+
+export function getConfigMapsList(params) {
+  console.log(params)
+  return request({
+    url: '/api/secrets',
     method: 'get',
     params,
     baseURL: 'http://127.0.0.1:8000'

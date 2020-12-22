@@ -50,7 +50,7 @@ export const constantRoutes = [
   },
 
   {
-    path: '/overview',
+    path: '/',
     component: Layout,
     children: [{
       path: 'overview',
@@ -63,6 +63,7 @@ export const constantRoutes = [
   {
     path: '/workloads',
     component: Layout,
+    redirect: '/workloads/deployments',
     meta: { title: 'Workloads', icon: 'workload', breadcrumb: false },
     children: [
       {
@@ -118,13 +119,13 @@ export const constantRoutes = [
       {
         path: 'ingresses',
         name: 'ingresses',
-        component: () => import('@/views/dashboard/index'),
+        component: () => import('@/views/service/ingresses'),
         meta: { title: 'Ingresses' }
       },
       {
         path: 'network_policies',
         name: 'network_policies',
-        component: () => import('@/views/dashboard/index'),
+        component: () => import('@/views/service/network_policies'),
         meta: { title: 'Network Policies' }
       }
     ]
@@ -133,12 +134,39 @@ export const constantRoutes = [
   {
     path: '/config',
     component: Layout,
-    children: [{
-      path: 'config',
-      name: 'config',
-      component: () => import('@/views/dashboard/index'),
-      meta: { title: 'Config and Storage', icon: 'storage' }
-    }]
+    meta: { title: 'Config and Storage', icon: 'storage', breadcrumb: false },
+    children: [
+      {
+        path: 'secrets',
+        name: 'secrets',
+        component: () => import('@/views/storage/secrets'),
+        meta: { title: 'Secret' }
+      },
+      {
+        path: 'service_accounts',
+        name: 'service_accounts',
+        component: () => import('@/views/storage/service_accounts'),
+        meta: { title: 'Service Account' }
+      },
+      {
+        path: 'config_maps',
+        name: 'config_maps',
+        component: () => import('@/views/storage/configmaps'),
+        meta: { title: 'Config Map' }
+      },
+      {
+        path: 'pv',
+        name: 'pv',
+        component: () => import('@/views/storage/pvs'),
+        meta: { title: 'PV' }
+      },
+      {
+        path: 'pvc',
+        name: 'pvc',
+        component: () => import('@/views/storage/pvcs'),
+        meta: { title: 'PVC' }
+      },
+    ]
   },
 
   {
@@ -202,7 +230,7 @@ export const constantRoutes = [
   },
 
   {
-    path: '/events',
+    path: '/',
     component: Layout,
     children: [{
       path: 'events',
@@ -240,7 +268,7 @@ export const constantRoutes = [
   },
 
   {
-    path: '/cdk8s',
+    path: '/',
     component: Layout,
     children: [{
       path: 'cdk8s',

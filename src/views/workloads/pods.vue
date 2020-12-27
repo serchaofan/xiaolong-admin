@@ -13,15 +13,24 @@
             v-loading="listloading"
             fit
             max-height="500">
-            <el-table-column prop="name" label="Name"></el-table-column>
+            <el-table-column prop="name" label="Name">
+              <template slot-scope="scope">
+                <el-button type="text" @click="podDetailed(scope.row.name, scope.row.namespace)">{{ scope.row.name }}</el-button>
+              </template>
+            </el-table-column>
             <el-table-column prop="namespace" label="Namespace"></el-table-column>
             <el-table-column prop="labels" label="Labels">
               <template slot-scope="scope">
-                <el-tag v-for="(val,key) in scope.row.labels" style="margin-bottom: 3px">{{key}}={{val}}</el-tag>
+                <el-tag v-for="(val,key) in scope.row.labels" class="multi_tags">{{key}}={{val}}</el-tag>
               </template>
             </el-table-column>
             <el-table-column prop="nodename" label="Node"></el-table-column>
             <el-table-column prop="hostIP" label="HostIP"></el-table-column>
+            <el-table-column label="container_statuses">
+              <template slot-scope="scope">
+                {{ scope.row.container_statuses.length }}
+              </template>
+            </el-table-column>
             <el-table-column prop="startTime" label="StartTime"></el-table-column>
             <el-table-column prop="podIP" label="PodIP"></el-table-column>
           </el-table>
@@ -66,6 +75,15 @@
             this.podsList = res.data
           })
           this.listloading = false
+        },
+        podDetailed(name, namespace) {
+          this.$router.push({
+            path: '/workloads/pod',
+            query: {
+              name: name,
+              namespace: namespace
+            }
+          })
         }
       },
       watch: {
@@ -73,11 +91,9 @@
           this.query = {
             namespace: this.$store.state.namespace.namespace
           }
-          console.log(this.query)
           await this.fetchData(this.query)
         }
       }
-
     }
 </script>
 

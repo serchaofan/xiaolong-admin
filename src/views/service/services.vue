@@ -16,19 +16,19 @@
             <el-table-column prop="namespace" label="Namespace" />
             <el-table-column prop="labels" label="Labels" width="300rem">
               <template slot-scope="scope">
-                <el-tag v-for="(val,key) in scope.row.labels" style="margin-bottom: 3px">{{ key }}={{ val }}</el-tag>
+                <el-tag v-for="(val,key) in scope.row.labels" class="multi_tags">{{ key }}={{ val }}</el-tag>
               </template>
             </el-table-column>
             <el-table-column prop="type" label="Type" width="100rem" />
             <el-table-column prop="clusterIP" label="ClusterIP" width="120rem" />
             <el-table-column prop="ports" label="Ports">
               <template slot-scope="scope">
-                <el-tag v-for="item in scope.row.ports" style="margin-bottom: 3px">{{ item.port }}:{{ item.node_port }}/{{ item.protocol }}</el-tag>
+                <el-tag v-for="item in scope.row.ports" class="multi_tags">{{ item.port }}:{{ item.node_port }}/{{ item.protocol }}</el-tag>
               </template>
             </el-table-column>
             <el-table-column prop="selector" label="Selector" width="200rem">
               <template slot-scope="scope">
-                <el-tag v-for="(val,key) in scope.row.selector" style="margin-bottom: 3px">{{ key }}={{ val }}</el-tag>
+                <el-tag v-for="(val,key) in scope.row.selector" class="multi_tags">{{ key }}={{ val }}</el-tag>
               </template>
             </el-table-column>
             <el-table-column prop="creationTimestamp" label="Create Time" />

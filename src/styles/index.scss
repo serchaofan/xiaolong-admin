@@ -63,3 +63,36 @@ div:focus {
 .app-container {
   padding: 20px;
 }
+
+.info_column {
+  width: 15rem;
+  font-weight: lighter;
+  color: #1f2d3d;
+  vertical-align: top;
+  font-family: "Roboto Light";
+}
+.info_value {
+  width: 20rem;
+  font-weight: lighter;
+  color: #5a5e66;
+}
+.card_header {
+  font-family: "Roboto Light";
+  font-weight: lighter;
+  font-size: medium;
+}
+
+.main_header {
+  font-family: 'Roboto Light';
+  font-weight: lighter;
+  margin-left: 1rem;
+}
+
+.multi_tags {
+  margin-bottom: 3px;
+  margin-right: 3px;
+}
+
+.detail_table {
+  border-spacing: 5px 10px;
+}

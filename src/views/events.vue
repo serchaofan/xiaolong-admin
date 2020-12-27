@@ -11,15 +11,16 @@
             stripe
             :data="eventsList.filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase()) || data.message.toLowerCase().includes(search.toLowerCase()))"
             width="100%"
-            :max-height="tableHeight">
+            :max-height="tableHeight"
+          >
             <el-table-column prop="name" label="Name" />
             <el-table-column prop="namespace" label="Namespace" width="100rem" />
-            <el-table-column prop="message" label="Message" :show-overflow-tooltip='true' />
+            <el-table-column prop="message" label="Message" :show-overflow-tooltip="true" />
             <el-table-column prop="reason" label="Reason" width="100rem" />
             <el-table-column prop="type" label="Type" width="100rem">
               <template slot-scope="scope">
                 <el-tag v-if="scope.row.type == 'Normal'">{{ scope.row.type }}</el-tag>
-                <el-tag type="warning" v-if="scope.row.type == 'Warning'">{{ scope.row.type }}</el-tag>
+                <el-tag v-if="scope.row.type == 'Warning'" type="warning">{{ scope.row.type }}</el-tag>
               </template>
             </el-table-column>
             <el-table-column prop="lastTimestamp" label="Last Time" />
@@ -31,10 +32,10 @@
 </template>
 
 <script>
-import {getEventsList} from "@/api/k8s";
+import { getEventsList } from '@/api/k8s'
 
 export default {
-  name: "events",
+  name: 'Events',
   data() {
     return {
       namespace: this.$store.state.namespace.namespace,

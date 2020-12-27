@@ -16,7 +16,7 @@
             <el-table-column prop="namespace" label="Namespace" width="100rem" />
             <el-table-column prop="labels" label="Labels" width="600rem">
               <template slot-scope="scope">
-                <el-tag v-for="(val,key) in scope.row.labels" style="margin-bottom: 3px; margin-right: 3px">{{ key }}={{ val }}</el-tag>
+                <el-tag v-for="(val,key) in scope.row.labels" class="multi_tags">{{ key }}={{ val }}</el-tag>
               </template>
             </el-table-column>
             <el-table-column prop="creationTimestamp" label="Create Time" />
@@ -31,7 +31,7 @@
 import {getRoleBindingsList} from "@/api/k8s";
 
 export default {
-  name: "role_bindings",
+  name: "RoleBindings",
   data() {
     return {
       namespace: this.$store.state.namespace.namespace,

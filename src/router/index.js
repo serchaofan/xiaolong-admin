@@ -79,6 +79,13 @@ export const constantRoutes = [
         meta: { title: 'Pods' }
       },
       {
+        path: 'pod',
+        name: 'pod',
+        hidden: true,
+        component: () => import('@/views/workloads/pod'),
+        meta: { title: 'Pod' }
+      },
+      {
         path: 'daemonsets',
         name: 'daemonsets',
         component: () => import('@/views/workloads/daemonsets'),

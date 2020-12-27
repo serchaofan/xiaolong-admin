@@ -1,4 +1,4 @@
-import request from '../utils/request';
+import request from '../utils/request'
 
 export function getNamespacesList() {
   return request({
@@ -28,6 +28,15 @@ export function getNodeInfo(params) {
 export function getPodsList(params) {
   return request({
     url: '/api/pods',
+    method: 'get',
+    params,
+    baseURL: 'http://127.0.0.1:8000'
+  })
+}
+
+export function getPodInfo(params) {
+  return request({
+    url: '/api/pod',
     method: 'get',
     params,
     baseURL: 'http://127.0.0.1:8000'

@@ -1,7 +1,7 @@
 <template>
   <el-main>
     <el-row :gutter="20">
-      <h2 style="font-family: 'Roboto Light'; font-weight: lighter; margin-left: 1rem">{{ node.name }}</h2>
+      <h2 class="main_header">{{ node.name }}</h2>
     </el-row>
     <el-row :gutter="20">
       <el-col :span="24">
@@ -9,7 +9,7 @@
           <el-tab-pane label="System" name="system">
             <el-col :span="14">
               <el-card>
-                <table style="border-spacing: 5px 10px;">
+                <table class="detail_table">
                   <tbody>
                     <tr>
                       <td class="info_column">Architecture</td>
@@ -71,7 +71,7 @@
           <el-tab-pane label="Metadata" name="metadata">
             <el-col :span="24">
               <el-card class="card_header">
-                <table style="border-spacing: 5px 10px;">
+                <table class="detail_table">
                   <tbody>
                     <tr>
                       <td class="info_column">Age</td>
@@ -80,13 +80,13 @@
                     <tr>
                       <td class="info_column">Labels</td>
                       <td class="info_value">
-                        <el-tag v-for="(val, key) in node['labels']" style="margin-bottom: 3px; margin-right: 3px">{{ key }}={{ val }}</el-tag>
+                        <el-tag v-for="(val, key) in node['labels']" class="multi_tags">{{ key }}={{ val }}</el-tag>
                       </td>
                     </tr>
                     <tr>
                       <td class="info_column">Annotations</td>
                       <td class="info_value">
-                    <el-tag v-for="(val, key) in node['annotations']" style="margin-bottom: 3px; margin-right: 3px">{{ key }}={{ val }}</el-tag>
+                    <el-tag v-for="(val, key) in node['annotations']" class="multi_tags">{{ key }}={{ val }}</el-tag>
                     </td>
                     </tr>
                   </tbody>
@@ -145,21 +145,5 @@
 </script>
 
 <style scoped>
-  .info_column {
-    width: 15rem;
-    font-weight: lighter;
-    color: #1f2d3d;
-    vertical-align: top;
-    font-family: "Roboto Light";
-  }
-  .info_value {
-    width: 20rem;
-    font-weight: lighter;
-    color: #5a5e66;
-  }
-  .card_header {
-    font-family: "Roboto Light";
-    font-weight: lighter;
-    font-size: medium;
-  }
+
 </style>

@@ -11,11 +11,12 @@
             stripe
             :data="clusterRolesList.filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase()))"
             width="100%"
-            :max-height="tableHeight">
+            :max-height="tableHeight"
+          >
             <el-table-column prop="name" label="Name" width="260rem" />
             <el-table-column prop="labels" label="Labels" width="600rem">
               <template slot-scope="scope">
-                <el-tag v-for="(val,key) in scope.row.labels" style="margin-bottom: 3px; margin-right: 3px">{{ key }}={{ val }}</el-tag>
+                <el-tag v-for="(val,key) in scope.row.labels" class="multi_tags">{{ key }}={{ val }}</el-tag>
               </template>
             </el-table-column>
             <el-table-column prop="creationTimestamp" label="Create Time" />
@@ -28,10 +29,10 @@
 </template>
 
 <script>
-import {getClusterRolesList} from "@/api/k8s";
+import { getClusterRolesList } from '@/api/k8s'
 
 export default {
-  name: "cluster_roles",
+  name: 'ClusterRoles',
   data() {
     return {
       namespace: this.$store.state.namespace.namespace,
@@ -43,7 +44,7 @@ export default {
     }
   },
   watch: {
-    '$store.state.namespace.namespace': async function () {
+    '$store.state.namespace.namespace': async function() {
       this.query = {
         namespace: this.$store.state.namespace.namespace
       }

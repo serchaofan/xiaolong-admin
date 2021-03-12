@@ -55,7 +55,7 @@ export const constantRoutes = [
     children: [{
       path: 'overview',
       name: 'overview',
-      component: () => import('@/views/dashboard/index'),
+      component: () => import('@/views/dashboard/ns_overview'),
       meta: { title: 'Namespace Overview', icon: 'namespace' }
     }]
   },
@@ -89,25 +89,25 @@ export const constantRoutes = [
         path: 'daemonsets',
         name: 'daemonsets',
         component: () => import('@/views/workloads/daemonsets'),
-        meta: { title: 'Daemon Sets' }
+        meta: { title: 'Daemonsets' }
       },
       {
         path: 'statefulsets',
         name: 'statefulsets',
         component: () => import('@/views/workloads/statefulsets'),
-        meta: { title: 'Stateful Sets' }
+        meta: { title: 'Statefulsets' }
       },
-      {
-        path: 'replicasets',
-        name: 'replicasets',
-        component: () => import('@/views/workloads/replicasets'),
-        meta: { title: 'Replica Sets' }
-      },
+      // {
+      //   path: 'replicasets',
+      //   name: 'replicasets',
+      //   component: () => import('@/views/workloads/replicasets'),
+      //   meta: { title: 'Replica Sets' }
+      // },
       {
         path: 'cronjobs',
         name: 'cronjobs',
         component: () => import('@/views/dashboard/index'),
-        meta: { title: 'Cron Jobs' }
+        meta: { title: 'Cronjobs' }
       }
     ]
   },

@@ -74,8 +74,10 @@
                 <table class="detail_table">
                   <tbody>
                     <tr>
-                      <td class="info_column">Age</td>
-                      <td class="info_value"></td>
+                      <td class="info_column">Create Time</td>
+                      <td class="info_value">
+                        {{ node['creationTimestamp'] }}
+                      </td>
                     </tr>
                     <tr>
                       <td class="info_column">Labels</td>

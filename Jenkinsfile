@@ -10,15 +10,15 @@ pipeline {
     stage('Npm install') {
       steps {
         sh ''' pwd && ls '''
-        // sh '''cd xiaolong-admin && npm install'''
+        sh '''npm install'''
       }
     }
 
-    // stage('npm run') {
-    //   steps {
-    //     sh 'npm run dev'
-    //   }
-    // }
+    stage('npm run') {
+      steps {
+        sh 'npm run dev'
+      }
+    }
 
   }
 }

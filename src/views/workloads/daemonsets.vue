@@ -24,7 +24,7 @@
             <el-table-column prop="status.current_number_scheduled" label="Current"></el-table-column>
             <el-table-column prop="status.number_ready" label="Ready"></el-table-column>
             <el-table-column prop="status.updated_number_scheduled" label="Up-To-Date"></el-table-column>
-            <el-table-column prop="creationTimestamp" label="Create Time"></el-table-column>
+            <el-table-column prop="creation_timestamp" label="Create Time"></el-table-column>
           </el-table>
         </el-card>
       </el-col>

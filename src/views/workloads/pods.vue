@@ -24,15 +24,15 @@
                 <el-tag v-for="(val,key) in scope.row.labels" class="multi_tags">{{key}}={{val}}</el-tag>
               </template>
             </el-table-column>
-            <el-table-column prop="nodename" label="Node"></el-table-column>
-            <el-table-column prop="hostIP" label="HostIP"></el-table-column>
+            <el-table-column prop="node_name" label="Node"></el-table-column>
+            <el-table-column prop="host_ip" label="HostIP"></el-table-column>
             <el-table-column label="container_statuses">
               <template slot-scope="scope">
                 {{ scope.row.container_statuses.length }}
               </template>
             </el-table-column>
-            <el-table-column prop="startTime" label="StartTime"></el-table-column>
-            <el-table-column prop="podIP" label="PodIP"></el-table-column>
+            <el-table-column prop="start_time" label="StartTime"></el-table-column>
+            <el-table-column prop="pod_ip" label="PodIP"></el-table-column>
           </el-table>
         </el-card>
       </el-col>

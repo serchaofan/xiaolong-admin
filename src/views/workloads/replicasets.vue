@@ -21,7 +21,7 @@
               </template>
             </el-table-column>
             <el-table-column prop="status" label="Status"></el-table-column>
-            <el-table-column prop="creationTimestamp" label="Create Time"></el-table-column>
+            <el-table-column prop="creation_timestamp" label="Create Time"></el-table-column>
           </el-table>
         </el-card>
       </el-col>

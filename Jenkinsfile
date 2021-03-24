@@ -10,7 +10,7 @@ pipeline {
 
     stage('Npm install') {
       steps {
-        sh '''cd chaofan-admin &&
+        sh '''cd xiaolong-admin &&
 npm install'''
       }
     }

@@ -3,15 +3,13 @@ pipeline {
   stages {
     stage('Clone') {
       steps {
-        echo 'Clone'
         git(url: 'https://github.com/serchaofan/xiaolong-admin', branch: 'main')
       }
     }
 
     stage('Npm install') {
       steps {
-        sh '''cd xiaolong-admin &&
-npm install'''
+        sh '''cd xiaolong-admin && npm install'''
       }
     }
 
